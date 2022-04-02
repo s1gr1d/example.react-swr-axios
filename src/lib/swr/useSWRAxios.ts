@@ -24,7 +24,7 @@ export interface Config<Data = unknown, Error = unknown>
 }
 
 export const useSWRAxios = <Data = unknown, Error = unknown>(
-  key: string,
+  key: string | null /* 'null' to conditionally fetch data */,
   axiosFetcher: (...args: any) => Promise<AxiosResponse<Data>>,
   config: SWRConfiguration<AxiosResponse<Data>, AxiosError<Error>> = {}
 ): Return<Data, Error> => {
