@@ -1,8 +1,8 @@
 import { useSWRAxios } from '../../lib/swr/useSWRAxios';
-import { SWRCacheKeyGetter } from '../../lib/swr/cacheKeyGetter';
+import { SWRCacheKey } from '../../lib/swr/cacheKeyGenerator';
 import { getDonkiNotifications } from './fetchers';
 
 export const useDonkiNoficationsSWR = (startDate: string, endDate: string) =>
-  useSWRAxios(SWRCacheKeyGetter.DONKI_NOTIFICATIONS(startDate, endDate), () =>
+  useSWRAxios(SWRCacheKey.DONKI_NOTIFICATIONS(startDate, endDate), () =>
     getDonkiNotifications(startDate, endDate)
   );
